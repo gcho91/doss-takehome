@@ -16,3 +16,10 @@
   color: black;
   margin-bottom: 8px;
 }
+
+/* to do: change css name */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+}
