@@ -27,7 +27,7 @@ export default function WorkspaceView() {
     <div>
       <h1>WS Title: {workspaceData.title}</h1>
       <p>workspace id: {workspaceData.id}</p>
-      <h2>Build Shipments: </h2>
+      <h2>Build Shipments: {workspaceData.buildShipments.length} </h2>
       <div className='build-shipments-row'>
         {workspaceData.buildShipments.map((item) => (
           <div key={item.id}>
@@ -37,10 +37,4 @@ export default function WorkspaceView() {
       </div>
     </div>
   )
-
 }
-
-// component
-// receives workspace ID
-// renders workspace ID
-// use workspace ID to load data in table

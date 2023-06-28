@@ -1,35 +1,43 @@
 import { Shipment } from "../../api/types";
+import '../style/Table.css'
 
 interface TableProps {
-  value: string;
-  shipments: Array<Shipment>;
+  id: string;
+  buildNumber: string;
+  shipments: Shipment[];
 }
 
-// shipments table
-// receives shipments array info from buildShipments[] in each WS
-// each shipment: cost, desc, id, orderNum
-// 
-
-// todo
-// receive array of shipments
-// iterate through each shipment
-// render details in table
 export default function Table(props: TableProps) {
+  const { id, buildNumber, shipments } = props;
 
   return (
     <div>
-      <h1>Table View - receives data, renders in table</h1>
-      <div key={props.value}>
-        {/* map table data here */}
-        <p>{props.shipments[0].description}</p>
-        <table style={{ width: 500 }}>
-          <tbody>
-            <tr>
-              <td>table data</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <h1>Table View</h1>
+      <p>ShipmentTable id: {id}</p>
+      <p>ShipmentTable buildNumber: {buildNumber}</p>
+      <table>
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>Desc</th>
+            <th>orderNumber</th>
+            <th>cost</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {shipments.map((value, key) => {
+            return (
+              <tr key={key}>
+                <td>{value.id}</td>
+                <td>{value.description}</td>
+                <td>{value.orderNumber}</td>
+                <td>{value.cost}</td>
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
     </div>
   )
 }
