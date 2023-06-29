@@ -1,23 +1,23 @@
-import { useState } from "react";
-import { Shipment } from "../../api/types";
+import { useState } from 'react'
+import { Shipment } from '../../api/types'
 import '../style/Table.css'
 
 interface TableProps {
-  id: string;
-  buildNumber: string;
-  shipments: Shipment[];
+  id: string
+  buildNumber: string
+  shipments: Shipment[]
 }
 
 export default function Table(props: TableProps) {
-  const { id, buildNumber, shipments } = props;
+  const { id, buildNumber, shipments } = props
   const [mockTableRows, setMockTableRows] = useState<Shipment[]>([])
 
   const mockAddNewShipment = () => {
     let row = {
-      id: "12345",
-      description: "abc",
-      orderNumber: "asdfdfadsfsf",
-      cost: 12345222
+      id: '12345',
+      description: 'abc',
+      orderNumber: 'asdfdfadsfsf',
+      cost: 12345222,
     }
     setMockTableRows([...mockTableRows, row])
   }
@@ -25,10 +25,13 @@ export default function Table(props: TableProps) {
   return (
     <>
       <div className="label-row">
-        <p style={{ margin: "auto 0" }}>Shipments</p>
-        <button className="button" onClick={mockAddNewShipment} > Add Shipment </button>
+        <p style={{ margin: 'auto 0' }}>Shipments</p>
+        <button className="button" onClick={mockAddNewShipment}>
+          {' '}
+          Add Shipment{' '}
+        </button>
       </div>
-      <table style={{ width: "100%" }}>
+      <table style={{ width: '100%' }}>
         <thead>
           <tr>
             <th>ID</th>
@@ -59,19 +62,17 @@ export default function Table(props: TableProps) {
                   <td>{value.cost}</td>
                 </tr>
               )
-            })
-          }
+            })}
         </tbody>
       </table>
     </>
   )
 }
 
-
 export const AddNewRow = () => {
   return <div>Add new row UI</div>
 }
 
 interface ButtonProps {
-  buttonText: string;
+  buttonText: string
 }
