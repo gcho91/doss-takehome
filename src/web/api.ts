@@ -22,7 +22,7 @@ class DosspaceApi {
       } catch (err) {
         throw new Error('Unable to fetch table Data')
       }
-  }
+    }
 }
 
 export default DosspaceApi

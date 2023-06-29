@@ -12,9 +12,9 @@ export default function Table(props: TableProps) {
 
   return (
     <div>
-      <h1>Table View</h1>
-      <p>ShipmentTable id: {id}</p>
-      <p>ShipmentTable buildNumber: {buildNumber}</p>
+      <h3>Table </h3>
+      {/* <p style={{ fontSize: "10px" }}>ShipmentTable id: {id}</p>
+      <p style={{ fontSize: "10px" }}>ShipmentTable buildNumber: {buildNumber}</p> */}
       <table>
         <thead>
           <tr>

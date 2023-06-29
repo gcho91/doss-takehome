@@ -1,5 +1,6 @@
 import { ShipmentTable } from "../../api/types"
 import Table from "./Table";
+import '../style/BuildShipment.css'
 
 interface BuildShipmentProps {
     buildShipment: ShipmentTable;
@@ -7,10 +8,9 @@ interface BuildShipmentProps {
 
 export default function BuildShipment({ buildShipment }: BuildShipmentProps) {
     return <div className='build-shipments'>
-        <p>Build Number: {buildShipment.buildNumber} </p>
-        <p>id: {buildShipment.id}</p>
+        <p><span className="build-number-label">Build Number: </span> {buildShipment.buildNumber}</p>
+        <p><span className="build-id-label">ID:</span>id: {buildShipment.id}</p>
         <div>
-
             <Table id={buildShipment.id} buildNumber={buildShipment.buildNumber} shipments={buildShipment.shipments} />
         </div>
     </div>

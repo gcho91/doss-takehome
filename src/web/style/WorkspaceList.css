@@ -23,3 +23,9 @@
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
 }
+
+.workspace-container {
+  background-color: #A9AFD1;
+  border-radius: 10px;
+  padding: 15px;
+}

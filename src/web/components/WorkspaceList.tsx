@@ -27,14 +27,18 @@ export default function WorkspaceList() {
       <h1 className="WorkspaceList__header">All workspaces (WorkspaceList component - dashboard view)</h1>
       <div className='grid-container'>
         {workspaces.map((workspace) => (
-          <div key={workspace.id}>
-            <div style={{ backgroundColor: "red" }}>
+          <div key={workspace.id} className='workspace-container'>
+            <div >
               <Link to={`/workspaces/${workspace.id}`}>{workspace.title}</Link>
               <p>id: {workspace.id}</p>
             </div>
           </div>
         ))}
-        <div>Add a new workspace</div>
+        <div>
+          <button onClick={() => {
+            console.log('adding new workspace')
+          }}>Add new workspace</button>
+        </div>
       </div>
     </div>
   )

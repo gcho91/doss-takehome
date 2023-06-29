@@ -30,7 +30,7 @@ export default function WorkspaceView() {
       <h2>Build Shipments: {workspaceData.buildShipments.length} </h2>
       <div className='build-shipments-row'>
         {workspaceData.buildShipments.map((item) => (
-          <div key={item.id}>
+          <div key={item.id} className="build-shipment">
             <BuildShipment buildShipment={item} />
           </div>
         ))}
