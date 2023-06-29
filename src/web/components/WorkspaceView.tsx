@@ -13,9 +13,10 @@ export default function WorkspaceView() {
   // Fetch workspace info from API
   useEffect(() => {
     async function fetchTableData() {
+      setLoading(true);
       const tableData = await DosspaceApi.getWorkspace(workspaceId!);
-      // https://github.com/remix-run/react-router/issues/8200
       setWorkspaceData(tableData)
+      setLoading(false);
     }
     fetchTableData()
   }, [workspaceId])
@@ -25,9 +26,9 @@ export default function WorkspaceView() {
 
   return (
     <div>
-      <h1>WS Title: {workspaceData.title}</h1>
-      <p>workspace id: {workspaceData.id}</p>
-      <h2>Build Shipments: {workspaceData.buildShipments.length} </h2>
+      <h1>Name: {workspaceData.title}</h1>
+      <p>ID: {workspaceData.id}</p>
+      <p>Build Shipments: {workspaceData.buildShipments.length} </p>
       <div className='build-shipments-row'>
         {workspaceData.buildShipments.map((item) => (
           <div key={item.id} className="build-shipment">

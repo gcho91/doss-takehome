@@ -24,3 +24,8 @@ td {
 .button:hover {
     background-color: #84BEF1;
 }
+
+.build-shipment {
+    padding: 15px;
+    margin-bottom: 15px;
+}

@@ -1,12 +1,10 @@
-.build-shipments-row {
+/* .build-shipments-row {
   display: grid;
-  /* grid-template-columns: repeat(2, 1fr);
-   */
+
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  /* grid-template-columns: repeat(auto-fit, 1fr); */
   width: 100%;
   grid-gap: 20px; 
-}
+} */
 
 .build-shipment {
   border: 1px #D3D3D3 solid;

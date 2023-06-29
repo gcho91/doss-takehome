@@ -13,7 +13,6 @@ export default function Table(props: TableProps) {
   const [mockTableRows, setMockTableRows] = useState<Shipment[]>([])
 
   const mockAddNewShipment = () => {
-    console.log('mock add new shipment ')
     let row = {
       id: "12345",
       description: "abc",
@@ -24,14 +23,12 @@ export default function Table(props: TableProps) {
   }
 
   return (
-    <div>
+    <>
       <div className="label-row">
-        <p style={{ margin: "auto 0" }}>Table </p>
+        <p style={{ margin: "auto 0" }}>Shipments</p>
         <button className="button" onClick={mockAddNewShipment} > Add Shipment </button>
       </div>
-      {/* <p style={{ fontSize: "10px" }}>ShipmentTable id: {id}</p>
-      <p style={{ fontSize: "10px" }}>ShipmentTable buildNumber: {buildNumber}</p> */}
-      <table>
+      <table style={{ width: "100%" }}>
         <thead>
           <tr>
             <th>ID</th>
@@ -66,8 +63,7 @@ export default function Table(props: TableProps) {
           }
         </tbody>
       </table>
-      <AddNewRow />
-    </div>
+    </>
   )
 }
 

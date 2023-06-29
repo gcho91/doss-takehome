@@ -33,40 +33,39 @@ export default function WorkspaceList() {
     setMockWorkspaces([...mockWorkspaces, mockWorkspace])
   }
 
-  useEffect(() => {
-    console.log(mockWorkspaces)
-  }, [mockWorkspaces])
-
   return (
     <div className="WorkspaceList">
-      <h1 className="WorkspaceList__header">All workspaces (WorkspaceList component - dashboard view)</h1>
-      <div className='grid-container'>
-        {workspaces.map((workspace) => (
-          <div key={workspace.id} className='workspace-container'>
-            <div >
-              <Link to={`/workspaces/${workspace.id}`}>{workspace.title}</Link>
-              <p>id: {workspace.id}</p>
-            </div>
-          </div>
-        ))}
-
-        {mockWorkspaces.length > 0 &&
-          mockWorkspaces.map((x, ind) => (
-            <div key={x.id} className='mock-workspace-container workspace-container'>
-              <p>{x.title} {ind}</p>
-              <p>{x.id}</p>
-            </div>
-          ))
-        }
-
+      <h1 className="WorkspaceList__header">All workspaces <span style={{ fontWeight: "normal" }}> | 3 | </span></h1>
+      <div className='grid-container' style={{ display: "none" }}>
       </div>
-      <div className='mock-workspaces'>
-
-      </div>
-
+      <table style={{ width: "100%" }}>
+        <thead>
+          <tr>
+            <th>Workspace Title</th>
+            <th>ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          {workspaces.map((value, key) => {
+            return (
+              <tr key={key}>
+                <td><Link to={`/workspaces/${value.id}`}>{value.title}</Link></td>
+                <td>{value.id}</td>
+              </tr>
+            )
+          })}
+          {mockWorkspaces.map((value, key) => {
+            return (
+              <tr key={key}>
+                <td>{value.title}</td>
+                <td>{value.id}</td>
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
       <div>
         <button onClick={() => {
-          console.log('adding new workspace')
           mockAddNewWorkspace();
         }}>Add new workspace</button>
       </div>
@@ -83,13 +82,9 @@ export const AddWorkspaceFormFields = () => {
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
 
-  return <form onSubmit={() => console.log('handle submit')}>
+  return <form>
     <label htmlFor="name">Name:</label>
     <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} />
-
-    {/* <label htmlFor="id">id:</label>
-    <input type="text" id="id" name="email" value={formData.email} onChange={handleChange} /> */}
-
     <button type="submit">Submit</button>
   </form>
 
