@@ -9,3 +9,18 @@ tr:nth-child(even) {
 td {
     font-size:10px;
 }
+
+.label-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    border-radius: 10px;
+    border: 1px solid #A1CDF4;
+    background-color: #A1CDF4;
+    padding: 0 15px;
+}
+.button:hover {
+    background-color: #84BEF1;
+}
