@@ -61,9 +61,9 @@ export default function WorkspaceList() {
         })}
         {mockWorkspaces.map((value, key) => {
           return (
-            <Link to={`/workspaces/${value.id}`} key={key} className='WorkspaceList__item'>
+            <div key={key} className='WorkspaceList__item'>
               <p>{value.title}</p>
-            </Link  >
+            </div  >
           )
         })}
       </div>
