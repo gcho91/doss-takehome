@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useState } from 'react'
-import '../style/WorkspaceList.css'
-import DosspaceApi from '../api'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import DosspaceApi from '../api'
 import { v4 as uuidv4 } from 'uuid'
+import '../style/WorkspaceList.css'
 
 interface HomepageWorkspace {
   id: string
@@ -34,51 +34,43 @@ export default function WorkspaceList() {
 
   return (
     <div className="WorkspaceList">
-      <h1 className="WorkspaceList__header">
-        All workspaces <span style={{ fontWeight: 'normal' }}> | 3 | </span>
-      </h1>
-      <div className="grid-container" style={{ display: 'none' }}></div>
-      <table style={{ width: '100%' }}>
-        <thead>
-          <tr>
-            <th>Workspace Title</th>
-            <th>ID</th>
-          </tr>
-        </thead>
-        <tbody>
-          {workspaces.map((value, key) => {
-            return (
-              <tr key={key}>
-                <td>
-                  <Link to={`/workspaces/${value.id}`}>{value.title}</Link>
-                </td>
-                <td>{value.id}</td>
-              </tr>
-            )
-          })}
-          {mockWorkspaces.map((value, key) => {
-            return (
-              <tr key={key}>
-                <td>{value.title}</td>
-                <td>{value.id}</td>
-              </tr>
-            )
-          })}
-        </tbody>
-      </table>
-      <div>
+      <div className="WorkspaceList__header">
+        <h1 className="">
+          All workspaces <span style={{ fontWeight: 'normal' }}> | 3 | </span>
+        </h1>
         <button
+          className='WorkspaceList__button'
           onClick={() => {
             mockAddNewWorkspace()
           }}
         >
-          Add new workspace
+          + Add Workspace
         </button>
+      </div>
+
+      <div className='WorkspaceList__container'>
+
+        {workspaces.map((value, key) => {
+          return (
+            <Link to={`/workspaces/${value.id}`} key={key} className='WorkspaceList__item'>
+              <p>{value.title}</p>
+            </Link  >
+          )
+        })}
+        {mockWorkspaces.map((value, key) => {
+          return (
+            <Link to={`/workspaces/${value.id}`} key={key} className='WorkspaceList__item'>
+              <p>{value.title}</p>
+            </Link  >
+          )
+        })}
       </div>
     </div>
   )
 }
 
+// @to do: implement
+// WIP - create form fields UI for handling Add New Workspace
 export const AddWorkspaceFormFields = () => {
   const [formData, setFormData] = useState({ name: '', id: '' })
 

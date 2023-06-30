@@ -2,3 +2,9 @@
 .build-id-label {
   font-weight: bold;
 }
+.build-shipment {
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px #d3d3d3 solid;
+  border-radius: 10px;
+}

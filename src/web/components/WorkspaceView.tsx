@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom'
 import DosspaceApi from '../api'
 import { Workspace } from '../../api/types'
 import BuildShipment from './BuildShipment'
-import '../style/WorkspaceView.css'
 
 export default function WorkspaceView() {
   const [isLoading, setLoading] = useState(false)
@@ -31,9 +30,7 @@ export default function WorkspaceView() {
       <p>Build Shipments: {workspaceData.buildShipments.length} </p>
       <div className="build-shipments-row">
         {workspaceData.buildShipments.map((item) => (
-          <div key={item.id} className="build-shipment">
-            <BuildShipment buildShipment={item} />
-          </div>
+          <BuildShipment buildShipment={item} key={item.id} />
         ))}
       </div>
     </div>

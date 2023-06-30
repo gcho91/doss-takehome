@@ -24,14 +24,11 @@ export default function Table(props: TableProps) {
 
   return (
     <>
-      <div className="label-row">
-        <p style={{ margin: 'auto 0' }}>Shipments</p>
-        <button className="button" onClick={mockAddNewShipment}>
-          {' '}
-          Add Shipment{' '}
-        </button>
+      <div className="table-header">
+        <p>Shipments</p>
+        <button className="table-header__button" onClick={mockAddNewShipment}>Add Shipment</button>
       </div>
-      <table style={{ width: '100%' }}>
+      <table className="table-data">
         <thead>
           <tr>
             <th>ID</th>
@@ -40,7 +37,6 @@ export default function Table(props: TableProps) {
             <th>Cost</th>
           </tr>
         </thead>
-
         <tbody>
           {shipments.map((value, key) => {
             return (
@@ -67,12 +63,4 @@ export default function Table(props: TableProps) {
       </table>
     </>
   )
-}
-
-export const AddNewRow = () => {
-  return <div>Add new row UI</div>
-}
-
-interface ButtonProps {
-  buttonText: string
 }

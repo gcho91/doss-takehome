@@ -8,7 +8,7 @@ interface BuildShipmentProps {
 
 export default function BuildShipment({ buildShipment }: BuildShipmentProps) {
   return (
-    <div className="build-shipments">
+    <div className="build-shipment">
       <p>
         <span className="build-number-label">Build Number: </span> {buildShipment.buildNumber}
       </p>

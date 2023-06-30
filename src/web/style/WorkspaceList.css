@@ -1,31 +1,54 @@
-.WorkspaceList {
+.WorkspaceList__header {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  justify-content: space-between;
 }
 
-.WorkspaceList__header {
+.WorkspaceList__header h1 {
   font-size: 18px;
   font-weight: bold;
-  margin: 0 0 16px;
-  padding-bottom: 8px;
 }
 
 .WorkspaceList__workspaceCard {
-  color: black;
+  color: #272932;
   margin-bottom: 8px;
 }
 
-/* to do: change css name */
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.WorkspaceList table {
   width: 100%;
-  grid-gap: 10px;
 }
 
-.workspace-container {
-  background-color: #a9afd1;
+.WorkspaceList__container {
+  width: 100%;
+  display: grid;
+  grid-gap: var(--g, 1rem);
+  grid-template-columns: repeat(auto-fill,
+      minmax(min(var(--m, 10rem), 100%), 1fr));
+}
+
+.WorkspaceList__item {
+  background-color: #B6C2D9;
   border-radius: 10px;
-  padding: 15px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+}
+
+.WorkspaceList__item:hover {
+  background-color: #272932;
+  color: white;
+}
+
+.WorkspaceList__button {
+  background-color: #272932;
+  border-radius: 10px;
+  border: 1px solid #272932;
+  align-self: center;
+  color: white;
+  padding: 6px 10px;
+}
+
+.WorkspaceList__button:hover {
+  background-color: #4D7EA8;
+  border: 1px solid #4D7EA8;
 }
