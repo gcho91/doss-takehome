@@ -9,7 +9,7 @@ interface TableProps {
 }
 
 export default function Table(props: TableProps) {
-  const { id, buildNumber, shipments } = props
+  const { shipments } = props
   const [mockTableRows, setMockTableRows] = useState<Shipment[]>([])
 
   const mockAddNewShipment = () => {

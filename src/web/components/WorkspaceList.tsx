@@ -32,11 +32,13 @@ export default function WorkspaceList() {
     setMockWorkspaces([...mockWorkspaces, mockWorkspace])
   }
 
+  let totalWorkspaces = mockWorkspaces.length + workspaces.length;
+
   return (
     <div className="WorkspaceList">
       <div className="WorkspaceList__header">
         <h1 className="">
-          All workspaces <span style={{ fontWeight: 'normal' }}> | 3 | </span>
+          All workspaces <span style={{ fontWeight: 'normal' }}> | {totalWorkspaces} | </span>
         </h1>
         <button
           className='WorkspaceList__button'
