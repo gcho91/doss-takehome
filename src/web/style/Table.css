@@ -1,7 +1,7 @@
 .table-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 }
 
 .table-header p {
@@ -38,5 +38,5 @@
 }
 
 .table-data tr:hover {
-  background-color: #FFEFD3;
+  background-color: #ffefd3;
 }

@@ -21,12 +21,11 @@
   width: 100%;
   display: grid;
   grid-gap: var(--g, 1rem);
-  grid-template-columns: repeat(auto-fill,
-      minmax(min(var(--m, 10rem), 100%), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(var(--m, 10rem), 100%), 1fr));
 }
 
 .WorkspaceList__item {
-  background-color: #B6C2D9;
+  background-color: #b6c2d9;
   border-radius: 10px;
   padding: 10px;
   text-align: center;
@@ -49,6 +48,6 @@
 }
 
 .WorkspaceList__button:hover {
-  background-color: #4D7EA8;
-  border: 1px solid #4D7EA8;
+  background-color: #4d7ea8;
+  border: 1px solid #4d7ea8;
 }

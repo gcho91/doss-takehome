@@ -32,7 +32,7 @@ export default function WorkspaceList() {
     setMockWorkspaces([...mockWorkspaces, mockWorkspace])
   }
 
-  let totalWorkspaces = mockWorkspaces.length + workspaces.length;
+  let totalWorkspaces = mockWorkspaces.length + workspaces.length
 
   return (
     <div className="WorkspaceList">
@@ -41,7 +41,7 @@ export default function WorkspaceList() {
           All workspaces <span style={{ fontWeight: 'normal' }}> | {totalWorkspaces} | </span>
         </h1>
         <button
-          className='WorkspaceList__button'
+          className="WorkspaceList__button"
           onClick={() => {
             mockAddNewWorkspace()
           }}
@@ -50,20 +50,19 @@ export default function WorkspaceList() {
         </button>
       </div>
 
-      <div className='WorkspaceList__container'>
-
+      <div className="WorkspaceList__container">
         {workspaces.map((value, key) => {
           return (
-            <Link to={`/workspaces/${value.id}`} key={key} className='WorkspaceList__item'>
+            <Link to={`/workspaces/${value.id}`} key={key} className="WorkspaceList__item">
               <p>{value.title}</p>
-            </Link  >
+            </Link>
           )
         })}
         {mockWorkspaces.map((value, key) => {
           return (
-            <div key={key} className='WorkspaceList__item'>
+            <div key={key} className="WorkspaceList__item">
               <p>{value.title}</p>
-            </div  >
+            </div>
           )
         })}
       </div>

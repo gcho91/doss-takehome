@@ -26,7 +26,9 @@ export default function Table(props: TableProps) {
     <>
       <div className="table-header">
         <p>Shipments</p>
-        <button className="table-header__button" onClick={mockAddNewShipment}>Add Shipment</button>
+        <button className="table-header__button" onClick={mockAddNewShipment}>
+          Add Shipment
+        </button>
       </div>
       <table className="table-data">
         <thead>
