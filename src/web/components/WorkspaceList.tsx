@@ -24,12 +24,21 @@ export default function WorkspaceList() {
     fetchWorkspaces()
   }, [])
 
-  const mockAddNewWorkspace = () => {
-    let mockWorkspace = {
-      id: uuidv4(),
-      title: 'mock workspace',
-    }
-    setMockWorkspaces([...mockWorkspaces, mockWorkspace])
+  // @todo: add new workspace
+  // current workspaces are fetched from api, then setWorkspaces() setstate
+  // to add new workspace - 
+  // need to call corresponding API 
+
+  const mockAddNewWorkspace = async () => {
+
+    const newWorkspace = await DosspaceApi.createWorkspace();
+    console.log(newWorkspace, 'new workspace')
+    // on refresh, the workspaces load
+    // add workspace btn click -> form with workspace info -> update workspace 
+  }
+
+  const resetServer = async () => {
+
   }
 
   let totalWorkspaces = mockWorkspaces.length + workspaces.length
@@ -48,13 +57,19 @@ export default function WorkspaceList() {
         >
           + Add Workspace
         </button>
+        <button
+          className="WorkspaceList__button"
+          onClick={() => {
+
+          }}
+        >Reset Button</button>
       </div>
 
       <div className="WorkspaceList__container">
         {workspaces.map((value, key) => {
           return (
             <Link to={`/workspaces/${value.id}`} key={key} className="WorkspaceList__item">
-              <p>{value.title}</p>
+              <p>{value.title} - {value.id}</p>
             </Link>
           )
         })}

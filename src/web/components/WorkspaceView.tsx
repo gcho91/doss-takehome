@@ -20,6 +20,14 @@ export default function WorkspaceView() {
     fetchTableData()
   }, [workspaceId])
 
+  const updateWorkspaceBtn = async () => {
+    if (workspaceData) {
+      const updatedData = await DosspaceApi.updateWorkspace(workspaceData.id);
+      setWorkspaceData(updatedData)
+    }
+  }
+
+
   if (isLoading) return <p>Loading...</p>
   if (!workspaceData) return <p>No profile data</p>
 
@@ -33,6 +41,11 @@ export default function WorkspaceView() {
           <BuildShipment buildShipment={item} key={item.id} />
         ))}
       </div>
+
+
+      <div>Update UI here</div>
+      <button onClick={updateWorkspaceBtn}>Update</button>
+
     </div>
   )
 }
