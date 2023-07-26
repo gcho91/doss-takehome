@@ -12,7 +12,6 @@ interface HomepageWorkspace {
 /** Homepage list of all workspaces that have been created */
 export default function WorkspaceList() {
   const [workspaces, setWorkspaces] = useState<HomepageWorkspace[]>([])
-  const [mockWorkspaces, setMockWorkspaces] = useState<HomepageWorkspace[]>([])
 
   // Fetch all workspaces from the API
   useEffect(() => {
@@ -24,35 +23,26 @@ export default function WorkspaceList() {
     fetchWorkspaces()
   }, [])
 
-  // @todo: add new workspace
-  // current workspaces are fetched from api, then setWorkspaces() setstate
-  // to add new workspace - 
-  // need to call corresponding API 
 
-  const mockAddNewWorkspace = async () => {
-
+  const addNewWorkspace = async () => {
     const newWorkspace = await DosspaceApi.createWorkspace();
-    console.log(newWorkspace, 'new workspace')
-    // on refresh, the workspaces load
-    // add workspace btn click -> form with workspace info -> update workspace 
+    setWorkspaces([
+      ...workspaces,
+      newWorkspace
+    ])
   }
 
-  const resetServer = async () => {
-
-  }
-
-  let totalWorkspaces = mockWorkspaces.length + workspaces.length
 
   return (
     <div className="WorkspaceList">
       <div className="WorkspaceList__header">
         <h1 className="">
-          All workspaces <span style={{ fontWeight: 'normal' }}> | {totalWorkspaces} | </span>
+          All workspaces <span style={{ fontWeight: 'normal' }}> | {workspaces.length} | </span>
         </h1>
         <button
           className="WorkspaceList__button"
           onClick={() => {
-            mockAddNewWorkspace()
+            addNewWorkspace()
           }}
         >
           + Add Workspace
@@ -71,13 +61,6 @@ export default function WorkspaceList() {
             <Link to={`/workspaces/${value.id}`} key={key} className="WorkspaceList__item">
               <p>{value.title} - {value.id}</p>
             </Link>
-          )
-        })}
-        {mockWorkspaces.map((value, key) => {
-          return (
-            <div key={key} className="WorkspaceList__item">
-              <p>{value.title}</p>
-            </div>
           )
         })}
       </div>

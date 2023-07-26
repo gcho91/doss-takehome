@@ -28,8 +28,8 @@ class DosspaceApi {
   static async createWorkspace() {
     try {
       const req = await axios.post(BASE_URL + "/");
-      const { newWorkspace } = req.data;
-      return newWorkspace;
+      const { workspace } = req.data;
+      return workspace;
     } catch (err) {
       throw new Error('Unable to create workspace')
     }
